@@ -1,2 +1,2 @@
 # guidebook project
-1. [Optimizing Linux Server Settings.md](clickhouse/Optimizing Linux Server Settings.md)
+1. [Optimizing Linux Server Settings.md](/clickhouse/Optimizing Linux Server Settings.md)
