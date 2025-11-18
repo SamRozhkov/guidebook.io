@@ -89,6 +89,7 @@ done
 Технология THP может привести к снижению производительности баз данных из-за особенностей управления памятью. Часто её лучше отключить:
 
 - Отключить THP
+  
 ```
 echo never > /sys/kernel/mm/transparent_hugepage/enabled
 echo never > /sys/kernel/mm/transparent_hugepage/defrag
