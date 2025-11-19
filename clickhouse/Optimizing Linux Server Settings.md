@@ -14,12 +14,14 @@ ClickHouse может одновременно открывать множест
   * soft nofile 262144
   * hard nofile 262144
 ```
+
  - Примените изменения:
+   
  ```
    # For the changes to take effect without rebooting
   ulimit -n 262144
-
  ```
+
  2. Оптимизируйте сетевые параметры
 
  Чтобы улучшить обработку больших объемов входящих подключений и данных, оптимизируйте стек TCP:
@@ -32,9 +34,10 @@ net.core.somaxconn = 4096net.core.netdev_max_backlog = 10000
 net.ipv4.tcp_max_syn_backlog = 4096
 net.core.rmem_max = 16777216
 net.core.wmem_max = 16777216
-
 ```
+
  - Примените изменения:
+
  ```
  sysctl -p
  ```
@@ -44,6 +47,7 @@ net.core.wmem_max = 16777216
  Планировщик ввода-вывода по умолчанию может оказаться неоптимальным для рабочих нагрузок базы данных. Изменение планировщика на deadline или noop может повысить производительность твердотельных накопителей:
 
 - Измените планировщик для SSD:
+  
 ```
 echo 'deadline' > /sys/block/sda/queue/scheduler
 ```
@@ -89,7 +93,7 @@ done
 Технология THP может привести к снижению производительности баз данных из-за особенностей управления памятью. Часто её лучше отключить:
 
 - Отключить THP
-  
+
 ```
 echo never > /sys/kernel/mm/transparent_hugepage/enabled
 echo never > /sys/kernel/mm/transparent_hugepage/defrag
